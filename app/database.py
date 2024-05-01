@@ -2,9 +2,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from .config import settings
 
 #connection string with local db
-DATABASE_URL = "postgresql://postgres:adwaith1310@localhost/twitter"
+DATABASE_URL = f"postgresql://{settings.db_username}:{settings.db_password}@{settings.db_hostname}/{settings.db_dbname}"
 
 #creating sql engine for db connection
 engine = create_engine(DATABASE_URL)

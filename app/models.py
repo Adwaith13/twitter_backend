@@ -6,6 +6,7 @@ from sqlalchemy.sql.sqltypes import TIMESTAMP
 #import base from database
 from .database import Base
 
+#User table
 class User(Base):
     __tablename__ = "users"
     

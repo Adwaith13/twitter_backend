@@ -5,6 +5,9 @@ class Settings(BaseSettings):
     db_password : str
     db_hostname : str
     db_dbname : str
+    secret_key : str
+    algorithm : str
+    expire_minutes : int
     
     class Config:
         env_file = ".env"

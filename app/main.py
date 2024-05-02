@@ -7,6 +7,7 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+#routes
 app.include_router(users.router)
 app.include_router(auth.router)
 

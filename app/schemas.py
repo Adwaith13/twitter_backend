@@ -1,5 +1,6 @@
 from pydantic import BaseModel,EmailStr
 from datetime import datetime
+from typing import Optional
 
 #schema to create user
 class UserCreate(BaseModel):
@@ -16,3 +17,10 @@ class UserOut(BaseModel):
     
     class Config:
         orm_mode = True
+ 
+ #schema for token        
+class Token(BaseModel):
+    access_token:str
+    token_type:str    
+class TokenData(BaseModel):
+    id:Optional[str] = None

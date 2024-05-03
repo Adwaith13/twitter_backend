@@ -19,9 +19,9 @@ def create_tweet(tweet:CreateTweet,db:Session=Depends(get_db),
     
     return new_tweet
     
-#get tweet by id
+#get tweet by owner id
 @router.get("/{id}",response_model=TweetGet,status_code=status.HTTP_200_OK)
-def get_tweet_by_id(id:int,db:Session=Depends(get_db),
+def get_tweet_by_owner_id(id:int,db:Session=Depends(get_db),
                     current_user:int=Depends(get_current_user)):
     tweet = db.query(Tweets).filter(Tweets.owner_id == id).first()
     if not tweet:

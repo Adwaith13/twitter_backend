@@ -29,6 +29,16 @@ def get_tweet_by_owner_id(id:int,db:Session=Depends(get_db),
                             detail=f"Tweet with owner id {id} not found")
     
     return tweet
+
+#get tweet by id
+@router.get("/tweet/{id}",response_model=TweetGet,status_code=status.HTTP_200_OK)
+def get_tweet_by_id(id:int,db:Session=Depends(get_db)):
+    tweet = db.query(Tweets).filter(Tweets.id == id).first()
+    if not tweet:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"Tweet with id {id} not found")
+    
+    return tweet
     
 #get all tweets
 @router.get("/",response_model=List[TweetGet],status_code=status.HTTP_200_OK)

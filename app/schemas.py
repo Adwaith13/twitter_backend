@@ -24,3 +24,17 @@ class Token(BaseModel):
     token_type:str    
 class TokenData(BaseModel):
     id:Optional[str] = None
+    
+#schema for tweet
+class CreateTweet(BaseModel):
+    tweet:str
+    
+class TweetGet(BaseModel):
+    id:int
+    tweet:str
+    created_at:datetime
+    owner_id:int
+    owner:UserOut    
+    class Config:
+        orm_mode = True
+    
